@@ -13,7 +13,7 @@ export class SupabaseAuthRepository implements AuthRepository {
   }
 
   async signUp(email: string, password: string): Promise<void> {
-    const { error } = await requireClient().auth.signUp({ email, password })
+    const { error } = await requireClient().auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}${import.meta.env.BASE_URL}` } })
     if (error) throw new Error(error.message)
   }
 

@@ -10,7 +10,7 @@ const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 20
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.DEV ? '/' : import.meta.env.BASE_URL}>
         <WorkspaceApp />
       </BrowserRouter>
     </QueryClientProvider>

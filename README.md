@@ -20,6 +20,12 @@ Apply the SQL files in `web/supabase/migrations/` in order using the Supabase SQ
 
 Configure Supabase email/password authentication and redirect URLs for the deployed application. Site reads use the authenticated user’s business/site memberships and RLS; the browser key is not an authorization mechanism.
 
+## Deploy to GitHub Pages
+
+The `Deploy Ledgerline` workflow publishes the app at `https://shaheemsanu.github.io/finance/` after pushes to `main`. Add the repository Actions secrets `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` before deployment. The publishable key is embedded in the client build by design; never use a service-role key.
+
+In Supabase Authentication URL Configuration, set the site URL to `https://shaheemsanu.github.io/finance/` and add that URL to the allowed redirect URLs. Apply the migrations before using financial write operations.
+
 ## Checks
 
 ```sh
